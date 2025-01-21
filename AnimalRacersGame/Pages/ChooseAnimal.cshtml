@@ -1,0 +1,32 @@
+﻿@page
+@model AnimalRacersGame.Pages.ChooseAnimalModel
+@{
+    ViewData["Title"] = "Choose Your Animal";
+}
+
+<h1 style="text-align: center; margin-bottom: 30px;">Choose Your Animal</h1>
+
+<form method="post">
+    <div style="display: flex; gap: 40px; flex-wrap: wrap; justify-content: center;">
+        @foreach (var animal in Model.Animals)
+        {
+            <div style="text-align: center; flex: 1 1 200px; max-width: 200px;">
+                <label>
+                    <input type="radio" name="animal" value="@animal.Name" style="display: none;" />
+                    <img src="@animal.ImagePath" alt="@animal.Name"
+                         style="width: 150px; height: 150px; cursor: pointer; border: 3px solid transparent; border-radius: 10px;"
+                         onclick="document.querySelectorAll('img').forEach(img => img.style.border = '3px solid transparent'); this.style.border='3px solid #007bff';" />
+                    <p style="margin-top: 10px; font-weight: bold;">@animal.Name</p>
+                </label>
+            </div>
+        }
+    </div>
+    <div style="margin-top: 30px; text-align: center;">
+        <button type="submit" class="btn btn-primary" style="padding: 15px 30px; font-size: 18px;">Start Game</button>
+    </div>
+</form>
+
+@if (!ModelState.IsValid)
+{
+    <p style="color: red; text-align: center; margin-top: 20px;">@ModelState[string.Empty]?.Errors.FirstOrDefault()?.ErrorMessage</p>
+}

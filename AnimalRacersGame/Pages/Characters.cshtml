@@ -1,0 +1,65 @@
+﻿@page
+@model AnimalRacersGame.Pages.CharactersModel
+@{
+    ViewData["Title"] = "Characters";
+}
+
+<div style="padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
+    <div style="max-width: 900px; margin: 0 auto;">
+
+        <h1 class="display-4" style="text-align: center; margin-bottom: 40px;">Meet the Characters!</h1>
+        <p style="text-align: center; margin-bottom: 40px;">Choose your favorite animal, each with unique abilities that make gameplay exciting and diverse. Here are the available characters:</p>
+
+        <!-- Snake -->
+        <div style="display: flex; align-items: center; margin-bottom: 30px; gap: 20px;">
+            <img src="~/images/Snake.png" alt="Snake" style="width: 150px; height: auto; flex-shrink: 0;" />
+            <div>
+                <h2>Snake</h2>
+                <p><strong>Feature:</strong> Growth after eating.</p>
+                <p><strong>Description:</strong> The snake grows longer after eating food, making navigation more challenging as the game progresses.</p>
+            </div>
+        </div>
+
+        <!-- Squirrel -->
+        <div style="display: flex; align-items: center; margin-bottom: 30px; gap: 20px;">
+            <img src="~/images/Squirrel.png" alt="Squirrel" style="width: 150px; height: auto; flex-shrink: 0;" />
+            <div>
+                <h2>Squirrel</h2>
+                <p><strong>Feature:</strong> Jumping over obstacles.</p>
+                <p><strong>Description:</strong> Gains the ability to jump over obstacles for the next two moves after eating food.</p>
+            </div>
+        </div>
+
+        <!-- Rat -->
+        <div style="display: flex; align-items: center; margin-bottom: 30px; gap: 20px;">
+            <img src="~/images/Rat.png" alt="Rat" style="width: 150px; height: auto; flex-shrink: 0;" />
+            <div>
+                <h2>Rat</h2>
+                <p><strong>Feature:</strong> Increased speed.</p>
+                <p><strong>Description:</strong> Moves two cells per turn for the next three moves after eating food.</p>
+    
+            </div>
+        </div>
+
+        <!-- Wolf -->
+        <div style="display: flex; align-items: center; margin-bottom: 30px; gap: 20px;">
+            <img src="~/images/Wolf.png" alt="Wolf" style="width: 150px; height: auto; flex-shrink: 0;" />
+            <div>
+                <h2>Wolf</h2>
+                <p><strong>Feature:</strong> Map portal.</p>
+                <p><strong>Description:</strong> Can move from one side of the map to the opposite side, crossing boundaries.</p>       
+            </div>
+        </div>
+
+        <!-- Fox -->
+        <div style="display: flex; align-items: center; margin-bottom: 30px; gap: 20px;">
+            <img src="~/images/Fox.png" alt="Fox" style="width: 150px; height: auto; flex-shrink: 0;" />
+            <div>
+                <h2>Fox</h2>
+                <p><strong>Feature:</strong> Long Jump.</p>
+                <p><strong>Description:</strong> After eating food, the fox gains the ability to jump 3 cells in any direction for one move, helping it navigate the map quickly and bypass obstacles.</p>
+            </div>
+        </div>
+
+    </div>
+</div>

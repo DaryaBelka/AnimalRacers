@@ -1,0 +1,80 @@
+﻿@page
+@model AnimalRacersGame.Pages.Game
+@{
+    ViewData["Title"] = "Animal Racers Game";
+}
+
+<h1 style="text-align: center; margin-bottom: 20px;">Animal Racers</h1>
+
+<div style="display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 20px;">
+    <span style="font-size: 20px; font-weight: bold;">Lives:</span>
+    @for (int i = 0; i < Model.Lives; i++)
+    {
+        <img src="/images/Heart.png" alt="Heart" style="width: 30px; height: 30px;" />
+    }
+</div>
+
+@if (!Model.IsGameOver)
+{
+    <div style="display: grid; grid-template-columns: repeat(@Model.MapWidth, 40px); gap: 4px; justify-content: center; margin-bottom: 30px;">
+        @foreach (var row in Model.Map)
+        {
+            @foreach (var cell in row)
+            {
+                <div style="width: 40px; height: 40px; text-align: center; border: 1px solid #ddd; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+                    @if (cell == 'S')
+                    {
+                        <img src="/images/Snake.png" alt="Snake" style="width: 90%; height: auto;" />
+                    }
+                    else if (cell == 'B')
+                    {
+                        <img src="/images/Squirrel.png" alt="Squirrel" style="width: 90%; height: auto;" />
+                    }
+                    else if (cell == 'R')
+                    {
+                        <img src="/images/Rat.png" alt="Rat" style="width: 90%; height: auto;" />
+                    }
+                    else if (cell == 'W')
+                    {
+                        <img src="/images/Wolf.png" alt="Wolf" style="width: 90%; height: auto;" />
+                    }
+                    else if (cell == 'F')
+                    {
+                        <img src="/images/Fox.png" alt="Fox" style="width: 90%; height: auto;" />
+                    }
+                    else if (cell == 'O' || cell == 'C' || cell == '@')
+                    {
+                        <img src="/images/Food.png" alt="Food" style="width: 90%; height: auto;" />
+                    }
+                    else if (cell == '#')
+                    {
+                        <img src="/images/Stone.png" alt="Trap" style="width: 90%; height: auto;" />
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <form method="post" style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 20px;">
+        <div>
+            <button type="submit" name="action" value="up" class="btn btn-secondary" style="width: 100px; height: 50px;">Up</button>
+        </div>
+        <div style="display: flex; gap: 20px;">
+            <button type="submit" name="action" value="left" class="btn btn-secondary" style="width: 100px; height: 50px;">Left</button>
+            <button type="submit" name="action" value="right" class="btn btn-secondary" style="width: 100px; height: 50px;">Right</button>
+        </div>
+        <div>
+            <button type="submit" name="action" value="down" class="btn btn-secondary" style="width: 100px; height: 50px;">Down</button>
+        </div>
+    </form>
+}
+else
+{
+    <div style="text-align: center; margin-top: 50px; color: red; font-size: 24px; font-weight: bold;">
+        Game Over!
+    </div>
+    <p style="text-align: center; margin-top: 20px;">Your journey has ended. Ready to try again?</p>
+    <form method="get" action="/ChooseAnimal" style="text-align: center;">
+        <button type="submit" class="btn btn-danger" style="padding: 15px 30px; font-size: 18px;">Start New Game</button>
+    </form>
+}
